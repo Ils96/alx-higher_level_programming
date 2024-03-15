@@ -1,14 +1,12 @@
 #!/usr/bin/python3
+from magic_calculation_102 import add, sub
 
-if __name__ == "__main__":
-    import sys
 
-    count = len(sys.argv) - 1
-    if count == 0:
-        print("0 arguments.")
-    elif count == 1:
-        print("1 argument:")
+def magic_calculation(a, b):
+    if a < b:
+        c = add(a, b)
+        for i in range(4, 6):
+            c = add(c, i)
+        return (c)
     else:
-        print("{} arguments:".format(count))
-    for i in range(count):
-        print("{}: {}".format(i + 1, sys.argv[i + 1]))    
+        return sub(a, b)   
