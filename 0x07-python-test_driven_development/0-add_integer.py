@@ -1,17 +1,27 @@
 #!/usr/bin/python3
-"""Defines integer add func."""
+"""Module for add_ints meth."""
 
 
 def add_integer(a, b=98):
-    """Return the integer.
+    """Adds 2  integers.
 
-    Float arguments are typecasted to ints bef add is performed.
+    Args:
+        a: the first integer.
+        b: the second integer, default 98.
 
     Raises:
-        TypeError: If either a or b is  non-integer and non-float.
+        TypeError: if a, b are not int, float.
+
+    Returns:
+        The sum of two ints.
     """
-    if ((not isinstance(a, int) and not isinstance(a, float))):
-        raise TypeError("a must be an integer")
-    if ((not isinstance(b, int) and not isinstance(b, float))):
-        raise TypeError("b must be an integer")
-    return (int(a) + int(b))
+
+    if type(a) not in (int, float):
+        raise TypeError('a must be an integer')
+    if type(b) not in (int, float):
+        raise TypeError('b must be an integer')
+    return int(a) + int(b)
+
+if __name__ == "__main__":
+    import doctest
+    doctest.testfile("tests/0-add_integer.txt")
